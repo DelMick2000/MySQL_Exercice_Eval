@@ -165,11 +165,16 @@ ORDER BY fournis.nomfou ASC, produit.libart ASC;
 
 <-- 17 - Avec le même type de sélection que ci-dessus, sortir un total des stocks par fournisseur, triés par total décroissant.
 
-SELECT produit.stkphy AS "total", produit.libart AS "nom du produit", fournis.nomfou AS "fournisseur" 
+SELECT fournis.nomfou AS "nom fournisseur", produit.libart AS "libellé", produit.stkphy AS "stock physique", produit.stkale "stock alerte"
 FROM produit 
 INNER JOIN vente ON produit.codart = vente.codart
 INNER JOIN fournis ON vente.numfou = fournis.numfou
-GROUP BY fournis.nomfou DESC;
+GROUP BY fournis.nomfou
+ORDER BY fournis.nomfou DESC;
+
+<-- 18 - En fin d'année, sortir la liste des produits dont la quantité réellement commandée dépasse 90% de la quantité annuelle prévue. -->
+
+SELECT produit.libart AS "produit", ligcom.qtecde AS "produit commandée", 
 
 
 

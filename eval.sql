@@ -53,6 +53,7 @@ INNER JOIN products ON `order details`.ProductID = products.ProductID
 INNER JOIN suppliers ON products.SupplierID = suppliers.SupplierID
 WHERE suppliers.CompanyName = "Exotic Liquids"
 GROUP BY orders.ShipCountry
+ORDER BY orders.shipcountry ASC;
 
 <-- 7 - Chiffre d'affaires global sur les ventes de 1997: -->
 
@@ -80,13 +81,3 @@ WHERE customers.CompanyName = "Du Monde Entier"
 
 SELECT ROUND(AVG(DATEDIFF(orders.ShippedDate,orders.OrderDate))) AS "Délai moyen de livraison en jours"
 FROM orders
-
-
-
-
-
-
-
-
-
-
